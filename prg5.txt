@@ -1,0 +1,118 @@
+use employeedatabase
+switched to db employeedatabase
+employeedatabase> db.employee.insertOne({
+ empno:102,
+ empname:"Ravi",
+empage:45,
+department:"Sales",
+designation:"Manager",
+ salary:45000,
+ phoneno:"9857568345"
+ })
+{
+  acknowledged: true,
+  insertedId: ObjectId('668d757cc08311f640e8e3e8')
+}
+employeedatabase> db.employee.insertMany(
+[
+{
+empno:103,
+ empname:"Sham",
+ empage:34,
+ department:"Purchase",
+ designation:"Supervisor",
+ salary:30000,
+ phoneno:"8756746559"
+ },
+ {
+ empno:104,
+ empname:"Ramesh",
+ empage:35,
+ department:"Accounts",
+ designation:"Manager",
+ salary:60000,
+ phoneno:"8675645838"
+ },
+ {
+ empno:105,
+ empname:"Ragu",
+ empage:37,
+ department:"Sales",
+ designation:"Supervisor",
+ salary:35000,
+ phoneno:"9587483329"
+ },
+ {
+ empno:106,
+ empname:"Rathesh",
+ empage:44,
+ department:"Accounts",
+ designation:"Staff",
+ salary:40000,
+ phoneno:"8676473675"
+}
+]
+ )
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('668d7755c08311f640e8e3e9'),
+    '1': ObjectId('668d7755c08311f640e8e3ea'),
+    '2': ObjectId('668d7755c08311f640e8e3eb'),
+    '3': ObjectId('668d7755c08311f640e8e3ec')
+  }
+}
+
+employeedatabase> db.employee.find().pretty()
+[
+  {
+    _id: ObjectId('668d757cc08311f640e8e3e8'),
+    empno: 102,
+    empname: 'Ravi',
+    empage: 45,
+    department: 'Sales',
+    designation: 'Manager',
+    salary: 45000,
+    phoneno: '9857568345'
+  },
+  {
+    _id: ObjectId('668d7755c08311f640e8e3e9'),
+    empno: 103,
+    empname: 'Sham',
+    empage: 34,
+    department: 'Purchase',
+    designation: 'Supervisor',
+    salary: 30000,
+    phoneno: '8756746559'
+  },
+  {
+    _id: ObjectId('668d7755c08311f640e8e3ea'),
+    empno: 104,
+    empname: 'Ramesh',
+    empage: 35,
+    department: 'Accounts',
+    designation: 'Manager',
+    salary: 60000,
+    phoneno: '8675645838'
+  },
+  {
+    _id: ObjectId('668d7755c08311f640e8e3eb'),
+    empno: 105,
+    empname: 'Ragu',
+    empage: 37,
+    department: 'Sales',
+    designation: 'Supervisor',
+    salary: 35000,
+    phoneno: '9587483329'
+  },
+  {
+    _id: ObjectId('668d7755c08311f640e8e3ec'),
+    empno: 106,
+    empname: 'Rathesh',
+    empage: 44,
+    department: 'Accounts',
+    designation: 'Staff',
+    salary: 40000,
+    phoneno: '8676473675'
+  }
+]

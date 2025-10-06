@@ -1,0 +1,59 @@
+<!Doctype html>
+<html lang="en" ng-app="myapp">
+ <head>
+    <title> Simple AngularJS Calculator Application </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"> </script>
+ </head> 
+ <body align="center" ng-controller="myctrl">
+    <h1>Simple AngularJS Calculator Application </h1>
+    <label>Value 1: 
+    <input type="text" id="text1" ng-model="value1"> 
+    </label>
+    <br> <br>
+
+    <label>Value 2: 
+    <input type="text" id="text2" ng-model="value2"> 
+    </label> 
+    <br><br>
+    <h3>Result:{{ result }}</h3>
+
+    <input type="button" Value="Addition" style ="width:150px" ng-click="calculateOp('+')">
+    <input type="button" Value="Subtraction" style ="width:150px" ng-click="calculateOp('-')"> <br><br>
+    <input type="button" Value="Multiplication" style ="width:150px" ng-click="calculateOp('*')">
+    <input type="button" Value="Division" style ="width:150px" ng-click="calculateOp('/')"> <br><br>
+    <input type="button" Value="Modulo Division" style ="width:150px" ng-click="calculateOp('%')">
+    <input type="button" Value="Clear" style ="width:150px" onclick=" document.getElementById('text1').value=' ',document.getElementById('text2').value=' '" ng-click="calculateOp(' ')">
+    
+  <script>
+    var app=angular.module("myapp",[]);
+    app.controller("myctrl",function($scope){
+      $scope.calculateOp=function(op)
+      {
+          switch(op)
+          {
+              case '+':
+                      $scope.result=parseInt($scope.value1)+parseInt($scope.value2);
+                      break;
+              case '-':
+                      $scope.result=parseInt($scope.value1)-parseInt($scope.value2);
+                      break;
+              case '*':
+                      $scope.result=parseInt($scope.value1)*parseInt($scope.value2);
+                      break;
+              case '/':
+                      $scope.result=parseInt($scope.value1)/parseInt($scope.value2);
+                      break;
+              case '%':
+                      $scope.result=parseInt($scope.value1)%parseInt($scope.value2);
+                      break;
+              case ' ':
+                      $scope.result=" ";
+                      break;
+          }
+      }
+    });
+  </script>
+ </body>
+</html>
+
+
